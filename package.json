@@ -16,7 +16,9 @@
     "eslint-plugin-standard": "^2.0.0"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^2.2.1",
+    "joi": "^9.0.4"
   }
 }
