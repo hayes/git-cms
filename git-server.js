@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
-const trees = require('./git/trees')
-const blobs = require('./git/blobs')
-const refs = require('./git/refs')
-const commits = require('./git/commits')
-const tags = require('./git/tags')
+const trees = require('./git/routes/trees')
+const blobs = require('./git/routes/blobs')
+const refs = require('./git/routes/refs')
+const commits = require('./git/routes/commits')
+const tags = require('./git/routes/tags')
 
 
 app.use('/git/trees', trees)
