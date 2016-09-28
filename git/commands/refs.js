@@ -5,7 +5,8 @@ module.exports = {
   getAllRefs: getAllRefs,
   createRef: createRef,
   updateRef: updateRef,
-  deleteRef: deleteRef
+  deleteRef: deleteRef,
+  getRef: getRef
 }
 
 function getAllRefs (pattern) {
