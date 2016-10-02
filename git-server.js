@@ -7,6 +7,18 @@ const commits = require('./git/routes/commits')
 const tags = require('./git/routes/tags')
 const fs = require('fs')
 var browserify = require('browserify')
+var watchify = require('watchify')
+
+var b = browserify({
+  entries: ['./app/index.js'],
+  cache: {},
+  packageCache: {},
+  plugin: [watchify],
+  debug: true
+})
+
+b.add('./app/index.js')
+b.transform('babelify')
 
 app.use('/git/trees', trees)
 app.use('/git/blobs', blobs)
@@ -22,13 +34,7 @@ app.get('/bundle.css', (req, res) => {
   fs.createReadStream('./app/main.css').pipe(res)
 })
 
-let cache = {}
 app.get('/bundle.js', function (req, res, next) {
-  var b = browserify({
-    cache: cache
-  })
-  b.add('./app/index.js')
-  b.transform('babelify', {presets: ['es2015', 'react']})
   b.bundle(function (err, bundle) {
     if (err) {
       console.error(err.message)

@@ -1,4 +1,11 @@
 {
   "parser": "babel-eslint",
-  "extends": ["standard", "standard-jsx"]
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false
+  },
+  "extends": ["standard", "standard-react"],
+  "rules": {
+    "generator-star-spacing": 0
+  }
 }
